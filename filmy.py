@@ -1,5 +1,6 @@
 class Movies:
-    def __init__(self, title, year, genre):
+    def __init__(self, ser_mov, title, year, genre):
+        self.ser_mov = ser_mov
         self.title = title
         self.year = year
         self.genre = genre
@@ -14,33 +15,25 @@ class Movies:
     def play(self, step=1):
         self.viewes_no += step
 
+movie1 = Movies(ser_mov = "m", title = "The Big", year = "1968", genre = "comedy", )
+movie2 = Movies(ser_mov = "m", title = "The Pretenders", year = "2002", genre = "thriller", ms = "m")
+movie3 = Movies(ser_mov = "m", title = "The Mightinhk", year = "1933", genre = "comedy", ms = "m")
+movie4 = Movies(ser_mov = "m", title = "Triple", year = "1970", genre = "comedy", ms = "m")
+movie5 = Movies(ser_mov = "m", title = "Other side", year = "2007", genre = "Fantasy", ms = "m")
+
+movies_list = [movie1, movie2, movie3, movie4, movie5]
 
 class TV_Series:
-    def __init__(self, title, year, genre):
-        self.title = title
-        self.year = year
-        self.genre = genre
-        self.views_no = 1
 
-    def __str__(self):
-        return f' {self.title} {self.year}'
-
-    def __repr__(self):
-        return f" title = {self.title} year = {self.year}"
-
-    def play(self, step=1):
-        self.views_no += step
-
-    def __init__(self, title, year, genre):
+    def __init__(self, s, title, year, genre):
         super().__init__(title, year, genre)
-        self.series_tracker.append(self)
-        ##Variables
+        self.ser_mov = s
         self.episode_no = 0
         self.season_no = 0
         self.episodes_per_season = 10
         self.seasons_count = 5
         self.no_play = 100
-        self.ms = ms
+
 
     def __str__(self):
         return f' {self.title} S{self.season_no}E{self.episode_no}'
@@ -51,23 +44,21 @@ class TV_Series:
     def play(self, step=1):
         self.no_play += step
         self.season_no < 6
-        if self.episode_no == 10:  ## zmienna
+        if self.episode_no == 10:
             self.season_no += step
             self.episode_no == 1
         else:
             self.episode_no += step
-        "Ostatni odcinek lub zerować"
 
-    @property
-    def episode(self):
-        return self._episode_no
+movie1 = Movies(ser_mov="m", title="The Big", year="1968", genre="comedy", )
+movie2 = Movies(ser_mov="m", title="The Pretenders", year="2002", genre="thriller", ms="m")
+movie3 = Movies(ser_mov="m", title="The Mightinhk", year="1933", genre="comedy", ms="m")
+movie4 = Movies(ser_mov="m", title="Triple", year="1970", genre="comedy", ms="m")
+movie5 = Movies(ser_mov="m", title="Other side", year="2007", genre="Fantasy", ms="m")
 
-    @episode.setter
-    def episode(self, number):
-        if number <= 250:
-            self._episode_no = number
-        else:
-            raise ValueError(f"Please check epiode_no. {number}")
+
+
+
 
     def series(self, step=1):
         self.season_no += step
